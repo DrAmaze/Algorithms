@@ -10,6 +10,6 @@ class Array
       self[i] = heap.extract
       i += 1
     end
-
+    self.reverse!
   end
 end
