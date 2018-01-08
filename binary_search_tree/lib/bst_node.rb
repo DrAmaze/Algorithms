@@ -7,5 +7,4 @@ class BSTNode
     @left = nil
     @right = nil
   end
-
 end
