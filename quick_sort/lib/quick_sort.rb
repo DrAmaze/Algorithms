@@ -34,7 +34,6 @@ class QuickSort
     pivot_idx = start + 1
 
     while idx < start + length
-      p array
       if prc.call(array[idx], array[start]) == -1
         array[idx], array[pivot_idx] = array[pivot_idx], array[idx]
         pivot_idx += 1
@@ -42,7 +41,6 @@ class QuickSort
 
       idx += 1
     end
-
     pivot_idx -= 1
     array[start], array[pivot_idx] = array[pivot_idx], array[start]
     pivot_idx

@@ -27,16 +27,19 @@ Array.prototype.partition = function(start, length, cb) {
   let temp;
 
   for(let idx = start + 1; idx < (start + length); idx++) {
-    console.log(this);
     if(cb(this[idx], this[start]) === 1) {
+      pivotIdx++;
+    } else {
       temp = this[idx];
       this[idx] = this[pivotIdx];
       this[pivotIdx] = temp;
-      pivotIdx++;
     }
   }
 
-  pivotIdx--;
+  if (start === 0) {
+    pivotIdx--;
+  }
+
   temp = this[start];
   this[start] = this[pivotIdx];
   this[pivotIdx] = temp;
