@@ -1,11 +1,4 @@
 describe('QuickSort', () => {
-  beforeEach(() => {
-    spyOn(Array.prototype, 'partition').and.callThrough();
-  });
-
-  afterEach(() => {
-    spyOn(Array.prototype.partition).not.toHaveBeenCalled();
-  });
 
   describe('partition', () => {
     let arr;
