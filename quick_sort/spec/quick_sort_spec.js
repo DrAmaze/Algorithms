@@ -25,5 +25,34 @@ describe('QuickSort', () => {
     });
   });
 
+  describe('sort2', () => {
+    let arr;
+    it('sorts an array', () => {
+      arr = [5, 3, 4, 2, 1, 6];
+      arr.sort2();
+      expect(arr).toEqual([1, 2, 3, 4, 5, 6]);
+    });
 
+    it('makes the right number of comparisons (good case)', () => {
+      arr = [4, 2, 1, 3, 6, 5, 7];
+      let num = 0;
+      let cb = function(x, y) {
+        num += 1;
+        return x > y ? 1 : 0;
+      };
+      arr.sort2(cb(num));
+      expect([10, 11]).toContain(num);
+    });
+
+    it('makes the right number of comparisons (worst case)', () => {
+      arr = [1, 2, 3, 4, 5];
+      let num = 0;
+      let cb = function(x, y) {
+        num += 1;
+        return x > y ? 1 : 0;
+      };
+      arr.sort2(cb(num));
+      expect([8, 10]).toContain(num);
+    });
+  });
 });
