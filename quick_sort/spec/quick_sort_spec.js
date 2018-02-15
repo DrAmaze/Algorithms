@@ -39,8 +39,9 @@ describe('QuickSort', () => {
       let cb = function(x, y) {
         num += 1;
         return x > y ? 1 : 0;
+        console.log(num)
       };
-      arr.sort2(cb(num));
+      arr.sort2(cb);
       expect([10, 11]).toContain(num);
     });
 
@@ -51,7 +52,7 @@ describe('QuickSort', () => {
         num += 1;
         return x > y ? 1 : 0;
       };
-      arr.sort2(cb(num));
+      arr.sort2(cb);
       expect([8, 10]).toContain(num);
     });
   });
