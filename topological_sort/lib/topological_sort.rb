@@ -8,13 +8,10 @@ def topological_sort(vertices)
   in_count = {}
   queue = []
 
-
   vertices.each do |vertex|
     in_count[vertex] = in_edge_hash(vertex)
 
-    if in_count[vertex] == 0
-      queue.push(vertex)
-    end
+    queue.push(vertex) if in_count[vertex] == 0
   end
 
   until queue.empty?
@@ -25,9 +22,7 @@ def topological_sort(vertices)
 
       in_count[edge.to_vertex] -= 1
 
-      if in_count[edge.to_vertex] == 0
-        queue.push(edge.to_vertex)
-      end
+      queue.push(edge.to_vertex) if in_count[edge.to_vertex] == 0
     end
 
     vertices.delete(current)

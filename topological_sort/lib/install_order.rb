@@ -7,8 +7,6 @@
 
 # Import any files you need to
 
-
-
 def install_order(arr)
   vertices = []
   dependencies = Hash.new([])
