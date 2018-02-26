@@ -87,9 +87,7 @@ class DynamicProgramming
         solutions[i - hop].each do |path|
           new_path = [hop]
 
-          path.each do |step|
-            new_path << step
-          end
+          path.each { |step| new_path << step }
 
           soln << new_path
         end
