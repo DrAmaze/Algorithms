@@ -33,27 +33,27 @@ require_relative 'graph'
 
 
 # Tarjan's
-def topological_sort(vertices)
-  ordering = []
-  explored = Set.new
-
-  vertices.each do |vertex| # O(|v|)
-    dfs!(vertex, explored, ordering) unless explored.include?(vertex)
-  end
-
-  ordering
-end
-
-def dfs!(vertex, explored, ordering)
-  explored.add(vertex)
-
-  vertex.out_edges.each do |edge| # O(|e|)
-    new_vertex = edge.to_vertex
-    dfs!(new_vertex, explored, ordering) unless explored.include?(new_vertex)
-  end
-
-  ordering.unshift(vertex)
-end
+# def topological_sort(vertices)
+#   ordering = []
+#   explored = Set.new
+#
+#   vertices.each do |vertex| # O(|v|)
+#     dfs!(vertex, explored, ordering) unless explored.include?(vertex)
+#   end
+#
+#   ordering
+# end
+#
+# def dfs!(vertex, explored, ordering)
+#   explored.add(vertex)
+#
+#   vertex.out_edges.each do |edge| # O(|e|)
+#     new_vertex = edge.to_vertex
+#     dfs!(new_vertex, explored, ordering) unless explored.include?(new_vertex)
+#   end
+#
+#   ordering.unshift(vertex)
+# end
 
 # Tarjans with cycle catching
 def topological_sort(vertices)
@@ -63,7 +63,7 @@ def topological_sort(vertices)
   cycle = false
 
   vertices.each do |vertex|
-    cycle = dfs!(vertex, explored, temp, order, cycle)  unless explored.include?(vertex)
+    cycle = dfs!(vertex, explored, temp, order, cycle) unless explored.include?(vertex)
     return [] if cycle
   end
 
