@@ -70,7 +70,7 @@ class BST
       }
 
     } else {
-      let nextMax = this.maximum(node);
+      let nextMax = this.maxLess(node);
       let nextMaxParent = this.parent(nextMax.val, node);
       nextMaxParent.right = null;
 
@@ -91,7 +91,7 @@ class BST
     if (!target || data === node.val) {
       return null;
     } else {
-      if (data === node.left.val || data == node.right.val) {
+      if (data === node.left.val || data === node.right.val) {
         return node;
       } else {
         return data < node.val ? this.parent(data, node.left) : this.parent(data, node.right);
@@ -101,9 +101,21 @@ class BST
 
   maximum(root = this.root) {
     if (root.right === null) {
-      return root;
+      return null;
     } else {
       return this.maximum(root.right);
+    }
+  }
+
+  maxLess(node = this.root) {
+    let currentNode = node.left;
+    if (!currentNode) {
+      return null;
+    } else {
+      while (currentNode.right) {
+        currentNode = currentNode.right;
+      }
+      return currentNode;
     }
   }
 }
